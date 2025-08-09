@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Strona Parafii</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'parish/css/style.css' %}">
+
+  </head>
+
+  <body>
+    <h1>Ogłoszenia parafialne</h1>
+    <ul>
+      {% for ann in announcements %}
+      <li>
+        <strong>{{ ann.title }}</strong> ({{ ann.date }})<br />
+        {{ ann.content }}
+      </li>
+      {% empty %}
+      <li>Brak ogłoszeń.</li>
+      {% endfor %}
+    </ul>
+  </body>
+
+</html>

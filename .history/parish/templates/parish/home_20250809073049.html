@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Parafia - Strona główna</title>
+    <link rel="stylesheet" href="{% static 'parish/css/style.css' %}" />
+
+  </head>
+
+  <body class="body">
+
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="/">Strona główna</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Aktualności</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Ogłoszenia</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <h1 class="main-content__title">Ogłoszenia parafialne</h1>
+      <ul class="announcement-list">
+        {% for ann in announcements %}
+        <li class="announcement-list__item">
+          <strong class="announcement-list__title">{{ ann.title }}</strong>
+          <span class="announcement-list__date">({{ ann.date|date:"d.m.Y" }})</span>
+          <br />
+          <p class="announcement-list__content">{{ ann.content }}</p>
+        </li>
+        {% empty %}
+        <li class="announcement-list__empty">Brak ogłoszeń.</li>
+        {% endfor %}
+      </ul>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">© 2025 Parafia. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+  </body>
+
+</html>
