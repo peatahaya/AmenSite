@@ -53,8 +53,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 ROOT_URLCONF = 'parafia_backend.urls'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
